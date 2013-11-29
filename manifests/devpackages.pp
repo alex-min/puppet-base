@@ -8,6 +8,11 @@ class devpackages {
 
 	    case $operatingsystem {
 	    	/(?i)(ubuntu|debian)/: {	
+	    		package { "mysql-server": ensure => installed, }
+	    		package { "mysql-client": ensure => installed, }
+	    		package { "php-apc": ensure => installed, }
+
+
 	    		# editor
 	    		package { "emacs23-nox": ensure => installed, }
 	    		package { "vim": ensure => installed, }
@@ -32,6 +37,8 @@ class devpackages {
 	    		package { "ruby": ensure => installed, }
 	    		package { "ruby-rvm": ensure => installed, }
 	    		package { "gem": ensure => installed, }
+
+
 				exec { "php_composer_install":
 				    command => "curl -sS https://getcomposer.org/installer | php",
 				    path    => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",

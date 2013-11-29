@@ -5,7 +5,7 @@ class installedfiles {
 		owner => root,
 		mode    => 0640,
       	group => root,
-      	content => "minette.alexandre@gmail.com",
+      	content => "minette.alexandre+dedicated@gmail.com",
 	}
     file {'/root/server_installed':
       ensure  => present,

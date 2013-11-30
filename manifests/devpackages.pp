@@ -35,7 +35,6 @@ class devpackages {
 	    		package { "python-pip": ensure => installed, }
 	    		package { "python-dev": ensure => installed, }
 	    		package { "ruby": ensure => installed, }
-	    		package { "ruby-rvm": ensure => installed, }
 	    		package { "gem": ensure => installed, }
 
 

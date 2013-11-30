@@ -4,7 +4,7 @@ class apacheconfig {
     mpm_module => 'prefork'
   } ->
   case $operatingsystem {
-      /(?i)(ubuntu|debian)/: {
+      'Ubuntu', 'Debian': {
         file { "/etc/apache2/conf.d/security.conf":
             mode => 440,
             notify  => Service["apache2"],

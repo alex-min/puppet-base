@@ -11,6 +11,7 @@ class devpackages {
 	    		package { "mysql-server": ensure => installed, }
 	    		package { "mysql-client": ensure => installed, }
 	    		package { "php-apc": ensure => installed, }
+	    		package { "mailutils": ensure => installed, }
 
 
 	    		# editor

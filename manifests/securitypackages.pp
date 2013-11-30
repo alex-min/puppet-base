@@ -19,7 +19,7 @@ class securitypackages {
 	    		package { "tiger": ensure => installed, } ->
 
 	    		exec { "tiger_exec":
-	    			command => 'tiger',
+	    			command => 'tiger &',
 	    			path    => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
 	    			creates => '/root/server_installed'
 	    		}

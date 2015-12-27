@@ -7,7 +7,15 @@ class devpackages {
 		notify {"Installing base development packages":} 
 
 	    case $operatingsystem {
-	    	/(?i)(ubuntu|debian)/: {	
+	    	/(?i)(ubuntu|debian)/: {
+			package { "php5-cli": ensure => installed, }
+			package { "php5-curl": ensure => installed, }
+			package { "php5-intl": ensure => installed, }
+			package { "php5-mcrypt": ensure => installed, }
+			package { "php5-mysql": ensure => installed, }			
+			
+			package { "nginx": ensure => installed, }
+			package { "sysdig": ensure => installed, }
 	    		package { "mysql-server": ensure => installed, }
 	    		package { "mysql-client": ensure => installed, }
 	    		package { "php-apc": ensure => installed, }
@@ -15,7 +23,7 @@ class devpackages {
 
 
 	    		# editor
-	    		package { "emacs23-nox": ensure => installed, }
+	    		package { "emacs24-nox": ensure => installed, }
 	    		package { "vim": ensure => installed, }
 	    	
 	    		# compilation
@@ -42,7 +50,7 @@ class devpackages {
 				exec { "php_composer_install":
 				    command => "curl -sS https://getcomposer.org/installer | php",
 				    path    => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-				    require => [Package['php'], Package['curl']],
+				    require => [Package['php5-cli'], Package['curl']],
 				 	creates => '/usr/local/bin/composer'
 				}
 				exec { "mv_composer":

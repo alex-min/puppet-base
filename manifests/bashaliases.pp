@@ -5,7 +5,14 @@ class bashaliases {
          group => root,
          source => "puppet:///modules/bash/.bashrc"
 	}
-	file { [ "/home", "/home/user"]:
+	file { "/usr/bin/add_website":
+         mode => 111,
+         owner => root,
+         group => root,
+         source => "puppet:///modules/bash/add_website"
+	}
+
+file { [ "/home", "/home/user"]:
 		ensure => "directory"
 	} ->
 	file { "/home/user/.bashrc":

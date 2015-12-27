@@ -11,7 +11,7 @@ class securitypackages {
 	    		# denyall
 	    		package { "rkhunter": ensure => installed, }
 	    		package { "chkrootkit": ensure => installed, }
-	    		package { "denyhosts": ensure => installed, }
+	    		#package { "denyhosts": ensure => installed, }
 	    		package { "fail2ban": ensure => installed, }
 	    		package { "postfix":
 	    			ensure => installed,

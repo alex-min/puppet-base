@@ -1,0 +1,15 @@
+[Unit]
+Description=Syncthing - Open Source Continuous File Synchronization for %I
+Documentation=http://docs.syncthing.net/
+After=network.target
+Wants=syncthing-inotify@.service
+
+[Service]
+User=data
+ExecStart=/usr/bin/syncthing -no-browser -no-restart -logflags=0 --gui-address=127.0.0.1:4567
+Restart=on-failure
+SuccessExitStatus=3 4
+RestartForceExitStatus=3 4
+
+[Install]
+WantedBy=multi-user.target
